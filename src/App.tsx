@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Services from './components/Services';
+import UniversitySearch from './components/UniversitySearch';
+import StudentResults from './components/StudentResults';
+import Testimonials from './components/Testimonials';
+import ContactForm from './components/ContactForm';
+import Footer from './components/Footer';
+import ConsultationModal from './components/ConsultationModal';
+import { useConsultation } from './contexts/ConsultationContext';
 import './App.css';
 
 function App() {
+  const { isConsultationModalOpen, closeConsultationModal } = useConsultation();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Hero />
+      <Services />
+      <UniversitySearch />
+      <StudentResults />
+      <Testimonials />
+      <ContactForm />
+      <Footer />
+      <ConsultationModal isOpen={isConsultationModalOpen} onClose={closeConsultationModal} />
     </div>
   );
 }
