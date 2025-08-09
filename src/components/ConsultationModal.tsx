@@ -52,8 +52,14 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+      onClick={onClose} // Overlay klikində bağla
+    >
+      <div
+        className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()} // Modal içində klikdə bağlama
+      >
         {/* Modal Header */}
         <div className="bg-gradient-to-r from-primary-500 to-primary-600 p-6 rounded-t-2xl">
           <div className="flex items-center justify-between">
@@ -214,4 +220,4 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
   );
 };
 
-export default ConsultationModal; 
+export default ConsultationModal;
