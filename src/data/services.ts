@@ -10,7 +10,7 @@ export const services: Service[] = [
       'Ekspert müəllimlərdən dərs',
       'Real test təcrübəsi',
       'Fərdi yanaşma',
-      'Nəticə garantisi',
+      'Nəticə zəmanəti',
       'Online və offline format'
     ],
     detailedInfo: {
@@ -20,14 +20,14 @@ export const services: Service[] = [
       materials: 'Rəsmi Cambridge materialları',
       practiceTests: 'Həftədə 1 tam test',
       support: '24/7 müəllim dəstəyi',
-      guarantee: '6.5+ nəticə garantisi',
+      guarantee: '6.5+ nəticə zəmanəti',
       additionalInfo: 'IELTS testi dünyanın ən populyar İngilis dili testidir və 140-dan çox ölkədə tanınır. Kursumuzda hər 4 bacarıq sahəsini (Listening, Reading, Writing, Speaking) əhatə edən intensiv hazırlıq proqramı təqdim edirik.'
     }
   },
   {
     id: '2',
     title: 'SAT hazırlığı',
-    description: 'Amerika universitetlərinə qəbul üçün SAT testi hazırlığı',
+    description: 'The Princeton Review ilə SAT testi hazırlığı',
     icon: '🎯',
     features: [
       'Riyaziyyat və İngilis dili',
@@ -40,10 +40,10 @@ export const services: Service[] = [
       duration: '4-8 ay',
       price: '1000-2000 AZN',
       schedule: 'Həftədə 4-5 dərs',
-      materials: 'College Board rəsmi materialları',
+      materials: 'The Princeton Review rəsmi materialları',
       practiceTests: 'Həftədə 2 tam test',
       support: 'Ekspert konsultasiya',
-      guarantee: '1400+ nəticə garantisi',
+      guarantee: '1400+ nəticə zəmanəti',
       additionalInfo: 'SAT Amerika universitetlərinə qəbul üçün əsas testdir. Kursumuzda Math və Evidence-Based Reading & Writing bölmələri üzrə dərin hazırlıq, test strategiyaları və vaxt idarəetməsi bacarıqları öyrədilir.'
     }
   },
@@ -66,7 +66,7 @@ export const services: Service[] = [
       materials: 'Universitet kataloqları və materialları',
       practiceTests: 'Müraciət mətnləri hazırlığı',
       support: 'Tam müşayiət',
-      guarantee: 'Qəbul garantisi',
+      guarantee: 'Qəbul zəmanəti',
       additionalInfo: 'Xaricdə təhsil prosesi mürəkkəb və çoxmərhələli prosesdir. Ekspertlərimiz hər addımda sizə dəstək göstərir: universitet seçimindən tutmuş, qəbul alıb ölkəyə köçənə qədər.'
     }
   }
