@@ -70,27 +70,28 @@ const Hero: React.FC = () => {
 
           {/* Stats */}
           <motion.div
-            className="flex flex-wrap gap-6 pt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            {[
-              { value: '500+', label: 'Uğurlu Tələbə' },
-              { value: '50+', label: 'Ölkə' },
-              { value: '95%', label: 'Qəbul Dərəcəsi' },
-            ].map((stat, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-3 bg-white/10 rounded-xl px-6 py-4 shadow-md hover:bg-white/20 transition-colors"
-              >
-                <span className="text-3xl md:text-4xl font-extrabold text-primary-200 drop-shadow">
-                  {stat.value}
-                </span>
-                <span className="text-base md:text-lg text-primary-100">{stat.label}</span>
-              </div>
-            ))}
-          </motion.div>
+  className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-10 text-center"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+>
+  {[
+    { value: '500+', label: 'Uğurlu Tələbə' },
+    { value: '50+', label: 'Ölkə' },
+    { value: '95%', label: 'Qəbul Dərəcəsi' },
+  ].map((stat, i) => (
+    <div
+      key={i}
+      className="bg-white/10 rounded-xl px-8 py-5 shadow-md hover:bg-white/20 transition-colors"
+    >
+      <p className="text-3xl md:text-4xl font-extrabold text-primary-200 drop-shadow">
+        {stat.value}
+      </p>
+      <p className="text-base md:text-lg text-primary-100">{stat.label}</p>
+    </div>
+  ))}
+</motion.div>
+
         </motion.div>
 
         {/* Right Illustration */}
