@@ -28,6 +28,15 @@ const StudentResults: React.FC = () => {
     }
   };
 
+const totalIELTSStudents = 15;
+const avgIELTSScore = 8.2;
+const totalSATStudents = 22;
+const avgSATScore = 1550;
+const totalTOEFLStudents = 10;
+const avgTOEFLScore = 110;
+const totalStudents = 47;
+
+
   return (
     <section id="results" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -156,28 +165,34 @@ const StudentResults: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-500 mb-2">
-                {studentResults.filter(r => r.testType === 'IELTS').length}
+              {totalIELTSStudents}
               </div>
               <div className="text-gray-600">IELTS Tələbəsi</div>
-              <div className="text-sm text-gray-500">Orta nəticə: 7.8</div>
+              <div className="text-sm text-gray-500">
+              Orta nəticə: {avgIELTSScore}
+              </div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-green-500 mb-2">
-                {studentResults.filter(r => r.testType === 'SAT').length}
+              {totalSATStudents}
               </div>
               <div className="text-gray-600">SAT Tələbəsi</div>
-              <div className="text-sm text-gray-500">Orta nəticə: 1535</div>
+              <div className="text-sm text-gray-500">
+                Orta nəticə:  {avgSATScore}
+              </div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-purple-500 mb-2">
-                {studentResults.filter(r => r.testType === 'TOEFL').length}
+              {totalTOEFLStudents}
               </div>
               <div className="text-gray-600">TOEFL Tələbəsi</div>
-              <div className="text-sm text-gray-500">Orta nəticə: 105</div>
+              <div className="text-sm text-gray-500">
+              Orta nəticə:  {avgTOEFLScore}
+              </div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-primary-600 mb-2">
-                {studentResults.length}
+                {totalStudents}
               </div>
               <div className="text-gray-600">Ümumi Tələbə</div>
               <div className="text-sm text-gray-500">2024-cü ildə</div>

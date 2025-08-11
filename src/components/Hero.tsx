@@ -82,15 +82,18 @@ const Hero: React.FC = () => {
   ].map((stat, i) => (
     <div
       key={i}
-      className="bg-white/10 rounded-xl px-8 py-5 shadow-md hover:bg-white/20 transition-colors"
+      className="bg-white/20 rounded-2xl px-8 py-5 shadow-md hover:bg-white/30 transition-colors flex flex-col items-center"
     >
-      <p className="text-3xl md:text-4xl font-extrabold text-primary-200 drop-shadow">
+      <p className="text-lg md:text-2xl font-extrabold text-primary-200 drop-shadow leading-none">
         {stat.value}
       </p>
-      <p className="text-base md:text-lg text-primary-100">{stat.label}</p>
+      <p className="text-base md:text-lg text-primary-100 mt-1">
+        {stat.label}
+      </p>
     </div>
   ))}
 </motion.div>
+
 
         </motion.div>
 
