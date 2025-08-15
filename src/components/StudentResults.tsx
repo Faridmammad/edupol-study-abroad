@@ -200,20 +200,6 @@ const totalStudents = 47;
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">
-              Sizin də bu nəticələri əldə etmək istəyirsiniz?
-            </h3>
-            <p className="text-primary-100 mb-6">
-              Professional müəllimlərimizlə görüşün və fərdi hazırlıq planınızı hazırlayın.
-            </p>
-            <button className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
-              Pulsuz Konsultasiya
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
