@@ -43,10 +43,10 @@ const totalStudents = 47;
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Tələbələrimizin Nəticələri
+            Tələbələrimizin nəticələri
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Edupol tələbələrinin əldə etdiyi yüksək nəticələr. 
+            Edupol tələbələrinin əldə etdiyi yüksək nəticələrdən bir neçəsi. <br /> 
             Sizin də bu uğurları təkrarlamağınız üçün buradayıq.
           </p>
         </div>
