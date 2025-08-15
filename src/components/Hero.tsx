@@ -42,29 +42,29 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-xl">
-            Xaricdə Təhsil Almaq
-            <span className="block bg-gradient-to-r from-primary-200 to-blue-300 bg-clip-text text-transparent animate-gradient-x">
-              Arzularınızı Reallaşdırın
+            Xaricdə təhsil almaq
+            <span className="block bg-gradient-to-r from-primary-200 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
+              arzularınızı reallaşdırın
             </span>
           </h1>
           <p className="text-xl text-primary-100 leading-relaxed max-w-2xl">
             Dünyanın ən yaxşı universitetlərində təhsil almaq üçün{" "}
             <span className="font-semibold text-white">professional dəstək</span>. IELTS, SAT hazırlığından tutmuş universitet qəbuluna qədər hər addımda yanınızdayıq.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex justify-center flex-col sm:flex-row gap-4">
             <motion.button
               onClick={openConsultationModal}
               className="bg-white text-primary-700 px-10 py-4 rounded-xl font-bold text-lg shadow-xl hover:scale-105 hover:shadow-2xl hover:bg-primary-100 hover:text-primary-800 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300"
               whileTap={{ scale: 0.95 }}
             >
-              Pulsuz Konsultasiya
+              Ödənişsiz konsultasiya
             </motion.button>
             <motion.button
               onClick={handleScrollToServices}
               className="border-2 border-white text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-primary-700 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300"
               whileTap={{ scale: 0.95 }}
             >
-              Xidmətlərimizi Tanıyın
+              Xidmətlərimiz
             </motion.button>
           </div>
 
@@ -76,9 +76,9 @@ const Hero: React.FC = () => {
   transition={{ duration: 0.8, delay: 0.3 }}
 >
   {[
-    { value: '500+', label: 'Uğurlu Tələbə' },
+    { value: '500+', label: 'Uğurlu tələbə' },
     { value: '50+', label: 'Ölkə' },
-    { value: '95%', label: 'Qəbul Dərəcəsi' },
+    { value: '95%', label: 'Qəbul dərəcəsi' },
   ].map((stat, i) => (
     <div
       key={i}
