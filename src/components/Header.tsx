@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useConsultation } from '../contexts/ConsultationContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '../assets/logo.png';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { href: '#services', label: 'Xidmətlər' },
-    { href: '#search', label: 'Universitet Axtar' },
+    { href: '#search', label: 'Universitet axtar' },
     { href: '#results', label: 'Nəticələr' },
     { href: '#testimonials', label: 'Təcrübələr' },
     { href: '#contact', label: 'Əlaqə' }
@@ -20,11 +21,18 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-extrabold text-primary-600 tracking-tight">Edupol</h1>
-              <p className="text-sm text-gray-600">Study Abroad</p>
-            </div>
-          </div>
+  <div className="flex-shrink-0 flex items-center space-x-2">
+    <img 
+      src={logo} 
+      alt="Edupol Study Abroad" 
+      className="w-12 h-12 object-contain" 
+    />
+    <h1 className="text-2xl font-extrabold text-primary-600 tracking-tight">
+      Edupol Study Abroad
+    </h1>
+  </div>
+</div>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
@@ -46,7 +54,7 @@ const Header: React.FC = () => {
               onClick={openConsultationModal}
               className="bg-gradient-to-r from-primary-500 to-primary-700 text-white px-6 py-2 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-transform font-medium"
             >
-              Pulsuz Konsultasiya
+              Ödənişsiz konsultasiya
             </button>
           </div>
 
@@ -91,7 +99,7 @@ const Header: React.FC = () => {
                   onClick={openConsultationModal}
                   className="w-full mt-4 bg-gradient-to-r from-primary-500 to-primary-700 text-white px-6 py-2 rounded-full shadow hover:scale-105 transition-transform font-medium"
                 >
-                  Pulsuz Konsultasiya
+                  Ödənişsiz konsultasiya
                 </button>
               </div>
             </motion.div>
