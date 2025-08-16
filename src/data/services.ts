@@ -1,11 +1,15 @@
+
 import { Service } from '../types';
+import ielts from '../assets/images/ielts.jpg';
+import sat from '../assets/images/sat.jpg';
+import abroad from '../assets/images/study-abroad.jpg';
 
 export const services: Service[] = [
   {
     id: '1',
     title: 'IELTS hazırlığı',
     description: 'Beynəlxalq İngilis dili testi üçün professional hazırlıq kursları',
-    icon: '📚',
+    image: ielts, 
     features: [
       'Ekspert müəllimlərdən dərs',
       'Real test təcrübəsi',
@@ -21,14 +25,15 @@ export const services: Service[] = [
       practiceTests: 'Həftədə 1 tam test',
       support: '24/7 müəllim dəstəyi',
       guarantee: '6.5+ nəticə zəmanəti',
-      additionalInfo: 'IELTS testi dünyanın ən populyar İngilis dili testidir və 140-dan çox ölkədə tanınır. Kursumuzda hər 4 bacarıq sahəsini (Listening, Reading, Writing, Speaking) əhatə edən intensiv hazırlıq proqramı təqdim edirik.'
+      additionalInfo:
+        'IELTS testi dünyanın ən populyar İngilis dili testidir və 140-dan çox ölkədə tanınır. Kursumuzda hər 4 bacarıq sahəsini (Listening, Reading, Writing, Speaking) əhatə edən intensiv hazırlıq proqramı təqdim edirik.'
     }
   },
   {
     id: '2',
     title: 'SAT hazırlığı',
     description: 'The Princeton Review ilə SAT testi hazırlığı',
-    icon: '🎯',
+    image: sat,
     features: [
       'Riyaziyyat və İngilis dili',
       'Test strategiyaları',
@@ -44,19 +49,20 @@ export const services: Service[] = [
       practiceTests: 'Həftədə 2 tam test',
       support: 'Ekspert konsultasiya',
       guarantee: '1400+ nəticə zəmanəti',
-      additionalInfo: 'SAT Amerika universitetlərinə qəbul üçün əsas testdir. Kursumuzda Math və Evidence-Based Reading & Writing bölmələri üzrə dərin hazırlıq, test strategiyaları və vaxt idarəetməsi bacarıqları öyrədilir.'
+      additionalInfo:
+        'SAT Amerika universitetlərinə qəbul üçün əsas testdir. Kursumuzda Math və Evidence-Based Reading & Writing bölmələri üzrə dərin hazırlıq, test strategiyaları və vaxt idarəetməsi bacarıqları öyrədilir.'
     }
   },
   {
     id: '3',
     title: 'Xaricdə təhsil',
     description: 'Dünyanın ən yaxşı universitetlərində təhsil almaq üçün konsaltinq',
-    icon: '🌍',
+    image: abroad,
     features: [
       'Universitet seçimi',
       'Müraciət dəstəyi',
       'Viza prosesi',
-      'Yaşayış təşkili',
+      'Yaşayış yeri təşkili',
       'Təhsil sonrası dəstək'
     ],
     detailedInfo: {
@@ -67,7 +73,8 @@ export const services: Service[] = [
       practiceTests: 'Müraciət mətnləri hazırlığı',
       support: 'Tam müşayiət',
       guarantee: 'Qəbul zəmanəti',
-      additionalInfo: 'Xaricdə təhsil prosesi mürəkkəb və çoxmərhələli prosesdir. Ekspertlərimiz hər addımda sizə dəstək göstərir: universitet seçimindən tutmuş, qəbul alıb ölkəyə köçənə qədər.'
+      additionalInfo:
+        'Xaricdə təhsil prosesi mürəkkəb və çoxmərhələli prosesdir. Ekspertlərimiz hər addımda sizə dəstək göstərir: universitet seçimindən tutmuş, qəbul alıb ölkəyə köçənə qədər.'
     }
   }
-]; 
+];
