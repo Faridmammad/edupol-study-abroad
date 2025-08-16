@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight drop-shadow-xl">
             Xaricdə təhsil almaq
             <span className="block bg-gradient-to-r from-primary-200 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
               arzularınızı reallaşdırın
@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
           </h1>
           <p className="text-xl text-primary-100 leading-relaxed max-w-2xl">
             Dünyanın ən yaxşı universitetlərində təhsil almaq üçün{" "}
-            <span className="font-semibold text-white">professional dəstək</span>. IELTS, SAT hazırlığından tutmuş universitet qəbuluna qədər hər addımda yanınızdayıq.
+            <span className="font-semibold text-white">professional dəstək</span>. IELTS, SAT hazırlığından universitet qəbuluna qədər hər addımda yanınızdayıq.
           </p>
           <div className="flex justify-center flex-col sm:flex-row gap-4">
             <motion.button
@@ -70,21 +70,21 @@ const Hero: React.FC = () => {
 
           {/* Stats */}
           <motion.div
-  className="flex flex-col sm:flex-row justify-center items-center gap-8 pt-10 text-center"
+  className="flex flex-row sm:flex-row justify-center items-center gap-8 pt-10 text-center"
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.3 }}
 >
   {[
-    { value: '500+', label: 'Uğurlu tələbə' },
-    { value: '50+', label: 'Ölkə' },
-    { value: '95%', label: 'Qəbul dərəcəsi' },
+    { value: '1800+', label: 'Uğurlu tələbə' },
+    { value: '50+', label: 'Universitet' },
+    { value: '98%', label: 'Qəbul nəticəsi' },
   ].map((stat, i) => (
     <div
       key={i}
-      className="bg-white/20 rounded-2xl px-8 py-5 shadow-md hover:bg-white/30 transition-colors flex flex-col items-center"
+      className="bg-white/20 rounded-2xl px-5 py-5 shadow-md hover:bg-white/30 transition-colors flex flex-col items-center"
     >
-      <p className="text-lg md:text-2xl font-extrabold text-primary-200 drop-shadow leading-none">
+      <p className="text-md md:text-2xl font-extrabold text-primary-50 drop-shadow leading-none">
         {stat.value}
       </p>
       <p className="text-base md:text-lg text-primary-100 mt-1">
@@ -116,16 +116,16 @@ const Hero: React.FC = () => {
             </div>
             <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary-500 to-primary-700 rounded-full px-6 py-2 shadow-lg flex items-center gap-2">
               <span className="text-3xl">🎓</span>
-              <span className="font-bold text-white text-lg">Edupol</span>
+              <span className="font-bold text-white text-lg">Doğru seçim!</span>
             </div>
             <div className="mt-8 text-center space-y-3">
               <h3 className="text-2xl font-semibold text-primary-900">Nə üçün Edupol?</h3>
-              <ul className="text-left space-y-2 text-primary-900">
+              <ul className="text-left space-y-2 text-base-900">
                 {[
-                  '10+ illik təcrübə',
+                  '15+ illik təcrübə',
                   'Professional komanda',
                   'Fərdi yanaşma',
-                  'Nəticə garantisi',
+                  'Nəticə zəmanəti',
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2">
                     <span className="text-green-500">✓</span> {item}
