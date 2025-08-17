@@ -53,51 +53,52 @@ const totalStudents = 47;
 
         {/* Test Type Filter */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white rounded-lg p-2 shadow-lg">
-            <div className="flex space-x-2">
-              <button
-                onClick={() => setSelectedTest('all')}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-                  selectedTest === 'all'
-                    ? 'bg-primary-600 text-white'
-                    : 'text-gray-600 hover:text-primary-600'
-                }`}
-              >
-                Hamısı
-              </button>
-              <button
-                onClick={() => setSelectedTest('IELTS')}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-                  selectedTest === 'IELTS'
-                    ? 'bg-blue-500 text-white'
-                    : 'text-gray-600 hover:text-blue-600'
-                }`}
-              >
-                IELTS
-              </button>
-              <button
-                onClick={() => setSelectedTest('SAT')}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-                  selectedTest === 'SAT'
-                    ? 'bg-green-500 text-white'
-                    : 'text-gray-600 hover:text-green-600'
-                }`}
-              >
-                SAT
-              </button>
-              <button
-                onClick={() => setSelectedTest('TOEFL')}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
-                  selectedTest === 'TOEFL'
-                    ? 'bg-purple-500 text-white'
-                    : 'text-gray-600 hover:text-purple-600'
-                }`}
-              >
-                TOEFL
-              </button>
-            </div>
-          </div>
-        </div>
+  <div className="bg-white rounded-lg p-2 shadow-lg">
+    <div className="flex gap-1 sm:gap-2">
+      <button
+        onClick={() => setSelectedTest('all')}
+        className={`px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors ${
+          selectedTest === 'all'
+            ? 'bg-primary-600 text-white'
+            : 'text-gray-600 hover:text-primary-600'
+        }`}
+      >
+        Hamısı
+      </button>
+      <button
+        onClick={() => setSelectedTest('IELTS')}
+        className={`px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors ${
+          selectedTest === 'IELTS'
+            ? 'bg-blue-500 text-white'
+            : 'text-gray-600 hover:text-blue-600'
+        }`}
+      >
+        IELTS
+      </button>
+      <button
+        onClick={() => setSelectedTest('SAT')}
+        className={`px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors ${
+          selectedTest === 'SAT'
+            ? 'bg-green-500 text-white'
+            : 'text-gray-600 hover:text-green-600'
+        }`}
+      >
+        SAT
+      </button>
+      <button
+        onClick={() => setSelectedTest('TOEFL')}
+        className={`px-3 py-2 sm:px-6 sm:py-3 rounded-lg font-medium text-sm sm:text-base transition-colors ${
+          selectedTest === 'TOEFL'
+            ? 'bg-purple-500 text-white'
+            : 'text-gray-600 hover:text-purple-600'
+        }`}
+      >
+        TOEFL
+      </button>
+    </div>
+  </div>
+</div>
+
 
         {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -158,7 +159,7 @@ const totalStudents = 47;
         </div>
 
         {/* Statistics */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
+        <div className="mt-16 bg-zinc-200 rounded-2xl shadow-lg p-8">
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
             Ümumi Statistika
           </h3>
