@@ -1,4 +1,11 @@
 import { University } from '../types';
+import oxford from '../assets/images/oxford.webp';
+import harvard from '../assets/images/harvard.webp';
+import munich from '../assets/images/munich.jpg';
+import sorbonne from '../assets/images/sorbonne.jpg';
+import toronto from '../assets/images/toronto.jpg';
+import zurich from '../assets/images/zurich.jpg';
+
 
 export const universities: University[] = [
   {
@@ -14,7 +21,7 @@ export const universities: University[] = [
     },
     programs: ['İqtisadiyyat', 'Hüquq', 'Tibb', 'Mühəndislik'],
     ranking: 1,
-    image: 'https://placehold.co/400x250?text=Harvard+University'
+    image: harvard
   },
   {
     id: '2',
@@ -29,7 +36,7 @@ export const universities: University[] = [
     },
     programs: ['Fəlsəfə', 'Tarix', 'Riyaziyyat', 'Fizika'],
     ranking: 2,
-    image: 'https://placehold.co/400x250?text=Oxford+University'
+    image: oxford
   },
   {
     id: '3',
@@ -44,7 +51,7 @@ export const universities: University[] = [
     },
     programs: ['Mühəndislik', 'Kompüter elmləri', 'Fizika', 'Kimya'],
     ranking: 8,
-    image: 'https://placehold.co/400x250?text=ETH+Zurich'
+    image: zurich
   },
   {
     id: '4',
@@ -59,7 +66,7 @@ export const universities: University[] = [
     },
     programs: ['Ədəbiyyat', 'Tarix', 'Fəlsəfə', 'Sosiologiya'],
     ranking: 15,
-    image: 'https://placehold.co/400x250?text=Sorbonne+University'
+    image: sorbonne
   },
   {
     id: '5',
@@ -74,7 +81,7 @@ export const universities: University[] = [
     },
     programs: ['Biznes', 'Mühəndislik', 'Tibb', 'Hüquq'],
     ranking: 18,
-    image: 'https://placehold.co/400x250?text=University+of+Toronto'
+    image: toronto
   },
   {
     id: '6',
@@ -89,6 +96,6 @@ export const universities: University[] = [
     },
     programs: ['Mühəndislik', 'Arxitektura', 'İqtisadiyyat', 'Tibb'],
     ranking: 25,
-    image: 'https://placehold.co/400x250?text=Technical+University+of+Munich'
+    image: munich
   }
 ]; 
