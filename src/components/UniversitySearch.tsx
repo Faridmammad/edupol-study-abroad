@@ -53,20 +53,20 @@ const UniversitySearch: React.FC = () => {
   };
 
   return (
-    <section id="search" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="search" className="py-20 bg-indigo-600 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
-            Universitet Axtar
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3">
+            Universitet axtar
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-zinc-100 max-w-3xl mx-auto">
             Dünyanın ən yaxşı universitetlərini kəşf edin və sizin üçün ən uyğun olanını tapın.
           </p>
         </div>
 
         {/* Search and Filters */}
-        <div className="bg-white shadow-lg rounded-2xl p-8 mb-12 border border-gray-100">
+        <div className="bg-transparent shadow-lg rounded-2xl p-8 mb-12 border border-gray-100">
           {/* Search Bar */}
           <div className="mb-8">
             <div className="relative">
@@ -75,7 +75,7 @@ const UniversitySearch: React.FC = () => {
                 placeholder="Universitet və ya şəhər adı ilə axtarın..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                className="w-full px-4 py-3 pl-12 border bg-transparent border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               />
               <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -87,11 +87,11 @@ const UniversitySearch: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             {/* Country */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Ölkə</label>
+              <label className="block text-sm font-medium text-zinc-100 mb-2">Ölkə</label>
               <select
                 value={filters.country}
                 onChange={(e) => handleFilterChange('country', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 bg-transparent border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">Bütün ölkələr</option>
                 {countries.map(country => (
@@ -102,11 +102,11 @@ const UniversitySearch: React.FC = () => {
 
             {/* Language */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Təhsil Dili</label>
+              <label className="block text-sm font-medium text-zinc-100 mb-2">Təhsil Dili</label>
               <select
                 value={filters.studyLanguage}
                 onChange={(e) => handleFilterChange('studyLanguage', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 bg-transparent border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">Bütün dillər</option>
                 {languages.map(language => (
@@ -117,11 +117,11 @@ const UniversitySearch: React.FC = () => {
 
             {/* Program */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Proqram</label>
+              <label className="block text-sm font-medium text-zinc-100 mb-2">Proqram</label>
               <select
                 value={filters.program}
                 onChange={(e) => handleFilterChange('program', e.target.value)}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-3 py-2 bg-transparent border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="">Bütün proqramlar</option>
                 {programs.map(program => (
@@ -132,21 +132,21 @@ const UniversitySearch: React.FC = () => {
 
             {/* Tuition Fee */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Təhsil Haqqı (USD)</label>
+              <label className="block text-sm font-medium text-zinc-100 mb-2">Təhsil Haqqı (USD)</label>
               <div className="flex space-x-2">
                 <input
                   type="number"
                   placeholder="Min"
                   value={filters.tuitionFeeRange[0]}
                   onChange={(e) => handleFilterChange('tuitionFeeRange', [parseInt(e.target.value) || 0, filters.tuitionFeeRange[1]])}
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-1/2 px-3 py-2 bg-transparent border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
                 <input
                   type="number"
                   placeholder="Max"
                   value={filters.tuitionFeeRange[1]}
                   onChange={(e) => handleFilterChange('tuitionFeeRange', [filters.tuitionFeeRange[0], parseInt(e.target.value) || 100000])}
-                  className="w-1/2 px-3 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  className="w-1/2 px-3 py-2 bg-transparent border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
               </div>
             </div>
@@ -156,11 +156,11 @@ const UniversitySearch: React.FC = () => {
           <div className="flex justify-between items-center text-sm">
             <button
               onClick={clearFilters}
-              className="text-primary-600 hover:text-primary-700 font-medium transition-colors"
+              className="text-zinc-100 hover:text-zinc-300 font-medium transition-colors"
             >
               Filtrləri təmizlə
             </button>
-            <span className="text-gray-500">
+            <span className="text-zinc-100">
               {filteredUniversities.length} universitet tapıldı
             </span>
           </div>
@@ -182,7 +182,7 @@ const UniversitySearch: React.FC = () => {
                 />
                 {university.ranking && (
                   <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
-                    #{university.ranking} dünyada
+                    Reyting #{university.ranking} 
                   </div>
                 )}
               </div>
