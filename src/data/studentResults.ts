@@ -55,7 +55,7 @@ export const studentResults: StudentResult[] = [
     maxScore: 120,
     year: 2024,
     photo: Student5,
-    testimonial: 'TOEFL-də 110 bal ilə Ege universitetinə qəbul oldum. Edupol-a təşəkkürlər!'
+    testimonial: 'TOEFL-də 110 bal ilə Münhen Texniki Universitetinə qəbul oldum. Edupol-a təşəkkürlər!'
   },
   {
     id: '6',
