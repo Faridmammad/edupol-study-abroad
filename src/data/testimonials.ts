@@ -1,11 +1,8 @@
 import { Testimonial } from '../types';
 
-import Student1 from '../assets/images/students/Student1.webp';
 import Student2 from '../assets/images/students/Student2.webp';
 import Student3 from '../assets/images/students/Student3.webp';
-import Student4 from '../assets/images/students/Student4.webp';
 import Student5 from '../assets/images/students/Student5.webp';
-import Student6 from '../assets/images/students/Student6.webp';
 
 export const testimonials: Testimonial[] = [
   {
