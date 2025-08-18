@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { universities } from '../data/universities';
 import { SearchFilters } from '../types';
 import UniversityCard from './UniversityCard';
@@ -16,11 +16,13 @@ const UniversitySearch: React.FC = () => {
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
+  const resultsRef = useRef<HTMLDivElement>(null);
+
   // Debounce search term
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
-      setCurrentPage(1); 
+      setCurrentPage(1);
     }, 300);
     return () => clearTimeout(handler);
   }, [searchTerm]);
@@ -53,11 +55,14 @@ const UniversitySearch: React.FC = () => {
 
   // Pagination
   const totalPages = Math.ceil(filteredUniversities.length / ITEMS_PER_PAGE);
-  const visibleUniversities = filteredUniversities.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const visibleUniversities = filteredUniversities.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   const handleFilterChange = (key: keyof SearchFilters, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value }));
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const clearFilters = () => {
@@ -70,6 +75,14 @@ const UniversitySearch: React.FC = () => {
     setSearchTerm('');
     setCurrentPage(1);
   };
+
+  // Scroll to slightly below results section on page change
+  useEffect(() => {
+    if (resultsRef.current) {
+      const top = resultsRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top - 100, behavior: 'smooth' }); // adjust 100px as needed
+    }
+  }, [currentPage]);
 
   return (
     <section id="search" className="py-20 bg-indigo-600">
@@ -96,8 +109,18 @@ const UniversitySearch: React.FC = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full px-4 py-3 pl-12 border bg-transparent border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               />
-              <svg className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              <svg
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
               </svg>
             </div>
           </div>
@@ -186,7 +209,7 @@ const UniversitySearch: React.FC = () => {
         </div>
 
         {/* Results */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={resultsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {visibleUniversities.map(university => (
             <UniversityCard key={university.id} university={university} />
           ))}
