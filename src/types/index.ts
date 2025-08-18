@@ -51,15 +51,14 @@ export interface StudentResult {
 }
 
 export interface Testimonial {
-  id: string;
+  id: number;
   name: string;
+  city: string;
   university: string;
-  country: string;
-  program: string;
-  photo: string;
-  testimonial: string;
-  rating: number;
+  image: string;
+  story: string;
 }
+
 
 export interface ContactForm {
   name: string;
