@@ -1,6 +1,9 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { universities } from '../data/universities';
-import { University, SearchFilters } from '../types';
+import { SearchFilters } from '../types';
+import UniversityCard from './UniversityCard';
+
+const ITEMS_PER_PAGE = 6;
 
 const UniversitySearch: React.FC = () => {
   const [filters, setFilters] = useState<SearchFilters>({
@@ -9,8 +12,18 @@ const UniversitySearch: React.FC = () => {
     tuitionFeeRange: [0, 100000],
     program: ''
   });
-
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Debounce search term
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+      setCurrentPage(1); 
+    }, 300);
+    return () => clearTimeout(handler);
+  }, [searchTerm]);
 
   // Unique filter options
   const countries = useMemo(() => Array.from(new Set(universities.map(u => u.country))), []);
@@ -24,8 +37,8 @@ const UniversitySearch: React.FC = () => {
   const filteredUniversities = useMemo(() => {
     return universities.filter(university => {
       const matchesSearch =
-        university.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        university.city.toLowerCase().includes(searchTerm.toLowerCase());
+        university.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        university.city.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
 
       const matchesCountry = !filters.country || university.country === filters.country;
       const matchesLanguage = !filters.studyLanguage || university.studyLanguage === filters.studyLanguage;
@@ -36,10 +49,15 @@ const UniversitySearch: React.FC = () => {
 
       return matchesSearch && matchesCountry && matchesLanguage && matchesProgram && matchesTuition;
     });
-  }, [searchTerm, filters]);
+  }, [debouncedSearchTerm, filters]);
+
+  // Pagination
+  const totalPages = Math.ceil(filteredUniversities.length / ITEMS_PER_PAGE);
+  const visibleUniversities = filteredUniversities.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   const handleFilterChange = (key: keyof SearchFilters, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value }));
+    setCurrentPage(1); 
   };
 
   const clearFilters = () => {
@@ -50,10 +68,11 @@ const UniversitySearch: React.FC = () => {
       program: ''
     });
     setSearchTerm('');
+    setCurrentPage(1);
   };
 
   return (
-    <section id="search" className="py-20 bg-indigo-600 ">
+    <section id="search" className="py-20 bg-indigo-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -65,7 +84,7 @@ const UniversitySearch: React.FC = () => {
           </p>
         </div>
 
-        {/* Search and Filters */}
+        {/* Search & Filters */}
         <div className="bg-transparent shadow-lg rounded-2xl p-8 mb-12 border border-gray-100">
           {/* Search Bar */}
           <div className="mb-8">
@@ -168,65 +187,46 @@ const UniversitySearch: React.FC = () => {
 
         {/* Results */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredUniversities.map((university) => (
-            <div
-              key={university.id}
-              className="bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
-            >
-              {/* Image */}
-              <div className="h-48 bg-gray-200 relative">
-                <img
-                  src={university.image}
-                  alt={university.name}
-                  className="w-full h-full object-cover"
-                />
-                {university.ranking && (
-                  <div className="absolute top-4 right-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
-                    Reyting #{university.ranking} 
-                  </div>
-                )}
-              </div>
-
-              {/* Info */}
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{university.name}</h3>
-                <p className="text-gray-500 text-sm mb-4">{university.city}, {university.country}</p>
-
-                <div className="space-y-1 mb-4 text-sm text-gray-600">
-                  <div><span className="font-medium">Təhsil dili:</span> {university.studyLanguage}</div>
-                  <div>
-                    <span className="font-medium">Təhsil haqqı:</span> {university.tuitionFee.min.toLocaleString()} - {university.tuitionFee.max.toLocaleString()} {university.tuitionFee.currency}
-                  </div>
-                </div>
-
-                {/* Programs */}
-                <div className="mb-4">
-                  <p className="text-sm font-medium text-gray-700 mb-2">Proqramlar:</p>
-                  <div className="flex flex-wrap gap-1">
-                    {university.programs.slice(0, 3).map((program, index) => (
-                      <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
-                        {program}
-                      </span>
-                    ))}
-                    {university.programs.length > 3 && (
-                      <span className="text-gray-500 text-xs">+{university.programs.length - 3} daha</span>
-                    )}
-                  </div>
-                </div>
-
-                <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
-                  Ətraflı Məlumat
-                </button>
-              </div>
-            </div>
+          {visibleUniversities.map(university => (
+            <UniversityCard key={university.id} university={university} />
           ))}
         </div>
 
+        {/* Empty state */}
         {filteredUniversities.length === 0 && (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Heç bir universitet tapılmadı</h3>
             <p className="text-gray-500">Axtarış kriteriyalarınızı dəyişdirin və yenidən cəhd edin.</p>
+          </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center space-x-2 mt-8">
+            <button
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(prev => prev - 1)}
+              className="px-3 py-1 rounded border bg-white hover:bg-gray-100 disabled:opacity-50"
+            >
+              Previous
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`px-3 py-1 rounded border ${currentPage === i + 1 ? 'bg-primary-600 text-white' : 'bg-white hover:bg-gray-100'}`}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(prev => prev + 1)}
+              className="px-3 py-1 rounded border bg-white hover:bg-gray-100 disabled:opacity-50"
+            >
+              Next
+            </button>
           </div>
         )}
       </div>
