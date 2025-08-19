@@ -251,7 +251,7 @@ const UniversitySearch: React.FC = () => {
         )}
 
         {/* Pagination */}
-        {totalPages > 1 && (
+        {totalPages >= 1 && (
           <div className="flex justify-center items-center space-x-2 mt-8">
             <button
               disabled={currentPage === 1}
@@ -259,9 +259,9 @@ const UniversitySearch: React.FC = () => {
                 setCurrentPage(prev => prev - 1);
                 hasUserInteracted.current = true;
               }}
-              className="px-3 py-1 rounded border bg-white hover:bg-gray-100 disabled:opacity-50"
+              className="px-3 py-1 rounded border bg-white font-semibold hover:bg-primary-700  disabled:opacity-50"
             >
-              Previous
+              {'<'}
             </button>
             {Array.from({ length: totalPages }, (_, i) => (
               <button
@@ -270,7 +270,7 @@ const UniversitySearch: React.FC = () => {
                   setCurrentPage(i + 1);
                   hasUserInteracted.current = true;
                 }}
-                className={`px-3 py-1 rounded border ${currentPage === i + 1 ? 'bg-primary-600 text-white' : 'bg-white hover:bg-gray-100'}`}
+                className={`px-3 py-1 rounded border ${currentPage === i + 1 ? 'bg-primary-600 text-white' : 'bg-white font-semibold hover:bg-primary-700 '}`}
               >
                 {i + 1}
               </button>
@@ -281,9 +281,9 @@ const UniversitySearch: React.FC = () => {
                 setCurrentPage(prev => prev + 1);
                 hasUserInteracted.current = true;
               }}
-              className="px-3 py-1 rounded border bg-white hover:bg-gray-100 disabled:opacity-50"
+              className="px-3 py-1 rounded border bg-white font-semibold hover:bg-primary-700  disabled:opacity-50"
             >
-              Next
+              {'>'}
             </button>
           </div>
         )}
