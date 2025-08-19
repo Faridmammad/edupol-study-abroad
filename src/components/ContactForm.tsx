@@ -87,22 +87,22 @@ const ContactForm: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-primary-800 mb-4 drop-shadow">
-            Bizimlə Əlaqə
+            Bizimlə əlaqə
           </h2>
-          <p className="text-xl text-primary-700 max-w-3xl mx-auto">
+          <p className="text-xl text-primary-900 max-w-3xl mx-auto">
             Xaricdə təhsil haqqında suallarınız varsa və ya konsultasiya almaq istəyirsinizsə, bizimlə əlaqə saxlayın. 24 saat ərzində cavab verəcəyik.
           </p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white/90 border-4 border-primary-100 rounded-3xl shadow-2xl p-10 relative">
-            <h3 className="text-2xl font-bold text-primary-700 mb-6">
-              Mesaj Göndərin
+            <h3 className="text-2xl font-bold text-primary-900 mb-6">
+              Mesaj göndərin
             </h3>
             <form onSubmit={handleSubmit} className="space-y-7">
               {/* Name */}
               <div className="relative">
-                <label htmlFor="name" className="block text-sm font-medium text-primary-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-mediumtext-stone-700 mb-2">
                   Ad Soyad *
                 </label>
                 <div className="relative">
@@ -122,7 +122,7 @@ const ContactForm: React.FC = () => {
               </div>
               {/* Email */}
               <div className="relative">
-                <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-mediumtext-stone-700 mb-2">
                   Email *
                 </label>
                 <div className="relative">
@@ -142,8 +142,8 @@ const ContactForm: React.FC = () => {
               </div>
               {/* Phone */}
               <div className="relative">
-                <label htmlFor="phone" className="block text-sm font-medium text-primary-700 mb-2">
-                  Telefon Nömrəsi *
+                <label htmlFor="phone" className="block text-sm font-mediumtext-stone-700 mb-2">
+                  Telefon nömrəsi *
                 </label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-primary-400">
@@ -162,7 +162,7 @@ const ContactForm: React.FC = () => {
               </div>
               {/* Service */}
               <div className="relative">
-                <label htmlFor="service" className="block text-sm font-medium text-primary-700 mb-2">
+                <label htmlFor="service" className="block text-sm font-mediumtext-stone-700 mb-2">
                   Xidmət *
                 </label>
                 <div className="relative">
@@ -186,7 +186,7 @@ const ContactForm: React.FC = () => {
               </div>
               {/* Message */}
               <div className="relative">
-                <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-2">
+                <label htmlFor="message" className="block text-sm font-mediumtext-stone-700 mb-2">
                   Mesaj *
                 </label>
                 <div className="relative">
@@ -219,7 +219,7 @@ const ContactForm: React.FC = () => {
                   </div>
                 ) : (
                   <span className="inline-flex items-center gap-2">
-                    Mesaj Göndər
+                    Mesaj göndər
                   </span>
                 )}
               </button>
@@ -228,50 +228,50 @@ const ContactForm: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-white/90 border-4 border-primary-100 rounded-3xl shadow-2xl p-8">
-              <h3 className="text-2xl font-bold text-primary-700 mb-6">
-                Əlaqə Məlumatları
+              <h3 className="text-2xl font-bold text-primary-900 mb-6">
+                Əlaqə məlumatları
               </h3>
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-primary-600 text-left">Bakı şəhəri, Nəsimi rayonu,<br/>Rəşid Behbudov 146</p>
+                    <p className="text-stone-700 text-left">Bakı şəhəri, Nəsimi rayonu,<br/>Rəşid Behbudov 146</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-primary-600 text-left">+994 55 488 90 20</p>
+                    <p className="text-stone-700 text-left">+994 55 488 90 20</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-primary-600 text-left">info@edupol.az</p>
+                    <p className="text-stone-700 text-left">info@edupol.az</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <div className="bg-primary-100 p-3 rounded-lg mr-4">
-                    <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
-                    <p className="text-primary-600 text-left">Bazar ertəsi - Cümə: 09:00 - 18:00</p>
-                    <p className="text-primary-600 text-left">Şənbə: 10:00 - 17:00</p>
+                    <p className="text-stone-700 text-left">Bazar ertəsi - Cümə: 09:00 - 18:00</p>
+                    <p className="text-stone-700 text-left">Şənbə: 10:00 - 17:00</p>
                   </div>
                 </div>
               </div>
@@ -279,8 +279,8 @@ const ContactForm: React.FC = () => {
             {/* Social Media */}
 {/* Sosial Media */}
 <div className="bg-white/90 border-4 border-primary-100 rounded-3xl shadow-2xl p-8">
-  <h3 className="text-2xl font-bold text-primary-700 mb-6">
-    Sosial Media
+  <h3 className="text-2xl font-bold text-primary-900 mb-6">
+    Sosial media
   </h3>
   <div className="flex space-x-4">
     <a
