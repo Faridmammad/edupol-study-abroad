@@ -50,7 +50,7 @@ const UniversityCard: React.FC<UniversityCardProps> = ({ university }) => {
         </div>
 
         <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
-          Ətraflı Məlumat
+          Ətraflı məlumat
         </button>
       </div>
     </div>
