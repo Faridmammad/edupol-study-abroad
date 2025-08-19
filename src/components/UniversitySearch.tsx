@@ -15,17 +15,30 @@ const UniversitySearch: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   const resultsRef = useRef<HTMLDivElement>(null);
+  const hasUserInteracted = useRef(false);
 
   // Debounce search term
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
       setCurrentPage(1);
+      if (hasUserInteracted.current) {
+        scrollToResults();
+      }
     }, 300);
     return () => clearTimeout(handler);
   }, [searchTerm]);
+
+  // Mark initial load as complete after mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Unique filter options
   const countries = useMemo(() => Array.from(new Set(universities.map(u => u.country))), []);
@@ -63,6 +76,8 @@ const UniversitySearch: React.FC = () => {
   const handleFilterChange = (key: keyof SearchFilters, value: any) => {
     setFilters(prev => ({ ...prev, [key]: value }));
     setCurrentPage(1);
+    hasUserInteracted.current = true;
+    scrollToResults();
   };
 
   const clearFilters = () => {
@@ -74,13 +89,21 @@ const UniversitySearch: React.FC = () => {
     });
     setSearchTerm('');
     setCurrentPage(1);
+    hasUserInteracted.current = true;
+    scrollToResults();
   };
 
-  // Scroll to slightly below results section on page change
-  useEffect(() => {
+  const scrollToResults = () => {
     if (resultsRef.current) {
       const top = resultsRef.current.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: top - 100, behavior: 'smooth' }); // adjust 100px as needed
+      window.scrollTo({ top: top - 100, behavior: 'smooth' });
+    }
+  };
+
+  // Only scroll when pagination changes and user has interacted
+  useEffect(() => {
+    if (hasUserInteracted.current && currentPage !== 1) {
+      scrollToResults();
     }
   }, [currentPage]);
 
@@ -106,7 +129,10 @@ const UniversitySearch: React.FC = () => {
                 type="text"
                 placeholder="Universitet və ya şəhər adı ilə axtarın..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  hasUserInteracted.current = true;
+                }}
                 className="w-full px-4 py-3 pl-12 border bg-transparent border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
               />
               <svg
@@ -229,7 +255,10 @@ const UniversitySearch: React.FC = () => {
           <div className="flex justify-center items-center space-x-2 mt-8">
             <button
               disabled={currentPage === 1}
-              onClick={() => setCurrentPage(prev => prev - 1)}
+              onClick={() => {
+                setCurrentPage(prev => prev - 1);
+                hasUserInteracted.current = true;
+              }}
               className="px-3 py-1 rounded border bg-white hover:bg-gray-100 disabled:opacity-50"
             >
               Previous
@@ -237,7 +266,10 @@ const UniversitySearch: React.FC = () => {
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
-                onClick={() => setCurrentPage(i + 1)}
+                onClick={() => {
+                  setCurrentPage(i + 1);
+                  hasUserInteracted.current = true;
+                }}
                 className={`px-3 py-1 rounded border ${currentPage === i + 1 ? 'bg-primary-600 text-white' : 'bg-white hover:bg-gray-100'}`}
               >
                 {i + 1}
@@ -245,7 +277,10 @@ const UniversitySearch: React.FC = () => {
             ))}
             <button
               disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(prev => prev + 1)}
+              onClick={() => {
+                setCurrentPage(prev => prev + 1);
+                hasUserInteracted.current = true;
+              }}
               className="px-3 py-1 rounded border bg-white hover:bg-gray-100 disabled:opacity-50"
             >
               Next
